@@ -1,0 +1,104 @@
+<div class="dashboard-container">
+  <header class="dashboard-header">
+    <div class="header-left">
+      <button class="menu-toggle" (click)="toggleMenu()">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <h1>Panel de Control</h1>
+    </div>
+    <div class="header-right">
+      <div class="user-profile">
+        <span>Usuario Admin</span>
+        <div class="avatar">UA</div>
+      </div>
+    </div>
+  </header>
+
+  <div class="dashboard-content">
+    <nav class="sidebar" [class.open]="isMenuOpen">
+      <ul class="nav-tabs">
+        <li [class.active]="activeTab === 'inicio'">
+          <a (click)="cambiarTab('inicio')"><i class="icon">📊</i> Inicio</a>
+        </li>
+        <li [class.active]="activeTab === 'ventas'">
+          <a (click)="cambiarTab('ventas')"><i class="icon">💰</i> Ventas</a>
+        </li>
+        <li [class.active]="activeTab === 'clientes'">
+          <a (click)="cambiarTab('clientes')"><i class="icon">👥</i> Clientes</a>
+        </li>
+        <li [class.active]="activeTab === 'productos'">
+          <a (click)="cambiarTab('productos')"><i class="icon">📦</i> Productos</a>
+        </li>
+        <li [class.active]="activeTab === 'reportes'">
+          <a (click)="cambiarTab('reportes')"><i class="icon">📈</i> Reportes</a>
+        </li>
+        <li [class.active]="activeTab === 'configuracion'">
+          <a (click)="cambiarTab('configuracion')"><i class="icon">⚙️</i> Configuración</a>
+        </li>
+      </ul>
+    </nav>
+
+    <main class="main-content">
+      <div *ngIf="activeTab === 'inicio'" class="tab-content">
+        <h2>Resumen General</h2>
+        <div class="stats-grid">
+          <div class="stat-card">
+            <div class="stat-icon">👥</div>
+            <div class="stat-info">
+              <h3>{{estadisticas.usuarios}}</h3>
+              <p>Usuarios</p>
+            </div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon">💰</div>
+            <div class="stat-info">
+              <h3>{{estadisticas.ventas | number}}</h3>
+              <p>Ventas Totales</p>
+            </div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon">📋</div>
+            <div class="stat-info">
+              <h3>{{estadisticas.pedidos}}</h3>
+              <p>Pedidos</p>
+            </div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon">💹</div>
+            <div class="stat-info">
+              <h3>{{estadisticas.ingresos | number}}</h3>
+              <p>Ingresos</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div *ngIf="activeTab === 'ventas'" class="tab-content">
+        <h2>Gestión de Ventas</h2>
+        <p>Contenido de la sección de ventas...</p>
+      </div>
+
+      <div *ngIf="activeTab === 'clientes'" class="tab-content">
+        <h2>Gestión de Clientes</h2>
+        <p>Contenido de la sección de clientes...</p>
+      </div>
+
+      <div *ngIf="activeTab === 'productos'" class="tab-content">
+        <h2>Gestión de Productos</h2>
+        <p>Contenido de la sección de productos...</p>
+      </div>
+
+      <div *ngIf="activeTab === 'reportes'" class="tab-content">
+        <h2>Reportes y Análisis</h2>
+        <p>Contenido de la sección de reportes...</p>
+      </div>
+
+      <div *ngIf="activeTab === 'configuracion'" class="tab-content">
+        <h2>Configuración del Sistema</h2>
+        <p>Contenido de la sección de configuración...</p>
+      </div>
+    </main>
+  </div>
+</div>
