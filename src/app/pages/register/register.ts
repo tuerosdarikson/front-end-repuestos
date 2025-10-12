@@ -19,6 +19,8 @@ export class RegisterComponent {
     telefono: ''
   };
   contrasenia = '';
+  // rol seleccionado en el formulario: 'Vendedor' por defecto
+  rol: 'Admin' | 'Vendedor' = 'Vendedor';
 
   // 👇 propiedades usadas en tu HTML
   showPassword = false;
@@ -84,10 +86,11 @@ export class RegisterComponent {
     }
 
     this.isLoading = true;
+    const roleMap: Record<string, number> = { 'Admin': 1, 'Vendedor': 2 };
     const data = {
       persona: this.persona,
       contrasenia: this.contrasenia,
-      rolId: 1,
+      rolId: roleMap[this.rol],
       estado: 'ACTIVO'
     };
 

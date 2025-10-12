@@ -93,6 +93,17 @@
         <a class="forgot" routerLink="/login">¿Ya tienes una cuenta? Inicia Sesión</a>
       </div>
 
+      <!-- Selector de rol: Admin o Vendedor -->
+      <div class="form-row" style="margin-top:0.75rem;">
+        <div class="form-group">
+          <label for="rol">Registrarse como</label>
+          <select id="rol" name="rol" class="form-control" [(ngModel)]="rol">
+            <option value="Vendedor">Vendedor</option>
+            <option value="Admin">Admin</option>
+          </select>
+        </div>
+      </div>
+
       <button type="submit" class="btn btn-primary" [disabled]="registerForm.invalid || isLoading" style="margin-top:1rem; width:100%;">
         <span *ngIf="!isLoading">Crear Cuenta</span>
         <span *ngIf="isLoading" class="loading">Cargando...</span>
